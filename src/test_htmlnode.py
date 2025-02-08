@@ -20,7 +20,7 @@ class TestHTMLNode(unittest.TestCase):
         node = HTMLNode("a", "Click Me", None, {"href": "www.boot.dev", "class": "link"})
         self.assertEqual(node.tag, "a")
         self.assertEqual(node.value, "Click Me")
-        self.assertEqual(node.children, None)
+        self.assertIsNone(node.children, None)
         self.assertEqual(node.props, {"href": "www.boot.dev", "class": "link"})
 
 

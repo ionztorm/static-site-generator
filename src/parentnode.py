@@ -19,6 +19,8 @@ class ParentNode(HTMLNode):
         if not self.children:
             raise ValueError("ParentNode must have children")
 
+        # NOTE: This is a recursive call to to_html. If child is a ParentNode,
+        # it will it's own to_html mothod until it reaches a LeafNode.
         children_html = "".join(child.to_html() for child in self.children)
 
         return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"

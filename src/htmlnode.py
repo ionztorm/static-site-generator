@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from typing import override
 
 
@@ -8,7 +6,7 @@ class HTMLNode:
         self,
         tag: str | None = None,
         value: str | None = None,
-        children: list[HTMLNode] | None = None,
+        children: list["HTMLNode"] | None = None,
         props: dict[str, str] | None = None,
     ) -> None:
         self.tag: str | None = tag

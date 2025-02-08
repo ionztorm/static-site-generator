@@ -13,7 +13,7 @@ A leaf node could also be raw text, like:
 
 from typing import override
 
-from .htmlnode import HTMLNode
+from htmlnode import HTMLNode
 
 
 class LeafNode(HTMLNode):
@@ -28,4 +28,4 @@ class LeafNode(HTMLNode):
         if not self.tag:
             return self.value
 
-        return f"<{self.tag} {self.props_to_html()}>{self.value}</{self.tag}>"
+        return f"<{self.tag}{self.props_to_html()}>{self.value}</{self.tag}>"

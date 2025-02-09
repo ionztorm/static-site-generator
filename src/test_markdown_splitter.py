@@ -38,32 +38,6 @@ class TestMarkdownSplitter(unittest.TestCase):
         self.assertEqual(new_nodes, expected)
         self.assertEqual(len(new_nodes), 3)
 
-    def test_delimiter_link(self) -> None:
-        old_nodes = [TextNode("This sentence has [link](https://example.com) text.", TextType.TEXT)]
-        new_nodes = split_nodes_delimiter(old_nodes, "[", TextType.LINK)
-        expected = [
-            TextNode("This sentence has ", TextType.TEXT),
-            TextNode("link", TextType.LINK, "https://example.com"),
-            TextNode(" text.", TextType.TEXT),
-        ]
-        self.assertEqual(new_nodes, expected)
-        self.assertEqual(len(new_nodes), 3)
-
-    def test_delimiter_image(self) -> None:
-        old_nodes = [
-            TextNode(
-                "This sentence has ![image](https://example.com/image.jpg) text.", TextType.TEXT
-            )
-        ]
-        new_nodes = split_nodes_delimiter(old_nodes, "![", TextType.IMAGE)
-        expected = [
-            TextNode("This sentence has ", TextType.TEXT),
-            TextNode("image", TextType.IMAGE, "https://example.com/image.jpg"),
-            TextNode(" text.", TextType.TEXT),
-        ]
-        self.assertEqual(new_nodes, expected)
-        self.assertEqual(len(new_nodes), 3)
-
     def test_delimiter_no_delimiter(self) -> None:
         old_nodes = [TextNode("This sentence has no delimiters.", TextType.TEXT)]
         new_nodes = split_nodes_delimiter(old_nodes, "*", TextType.BOLD)

@@ -4,11 +4,6 @@ from leafnode import LeafNode
 
 
 class TestLeafNode(unittest.TestCase):
-    def test_to_html(self) -> None:
-        node = LeafNode("p", "This is a leaf node")
-        expected = "<p>This is a leaf node</p>"
-        self.assertEqual(node.to_html(), expected)
-
     def test_to_html_no_props(self) -> None:
         node = LeafNode("p", "This is a leaf node")
         expected = "<p>This is a leaf node</p>"

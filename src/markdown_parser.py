@@ -85,6 +85,18 @@ def split_nodes_by_type(
     return split_nodes
 
 
+def split_nodes_bold(nodes: list[TextNode]) -> list[TextNode]:
+    return split_nodes_delimiter(nodes, "**", TextType.BOLD)
+
+
+def split_nodes_italic(nodes: list[TextNode]) -> list[TextNode]:
+    return split_nodes_delimiter(nodes, "*", TextType.ITALIC)
+
+
+def split_nodes_code(nodes: list[TextNode]) -> list[TextNode]:
+    return split_nodes_delimiter(nodes, "`", TextType.CODE)
+
+
 def split_nodes_link(nodes: list[TextNode]) -> list[TextNode]:
     return split_nodes_by_type(nodes, extract_markdown_links, TextType.LINK)
 
@@ -95,3 +107,9 @@ def split_nodes_image(nodes: list[TextNode]) -> list[TextNode]:
 
 def split_nodes_link_and_image(nodes: list[TextNode]) -> list[TextNode]:
     return split_nodes_image(split_nodes_link(nodes))
+
+
+def text_to_textnode(text: str) -> list[TextNode]:
+    return split_nodes_link_and_image(
+        split_nodes_code(split_nodes_italic(split_nodes_bold([TextNode(text, TextType.TEXT)])))
+    )

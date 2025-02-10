@@ -65,3 +65,7 @@ class TestMarkdownSplitter(unittest.TestCase):
         ]
         self.assertEqual(new_nodes, expected)
         self.assertEqual(len(new_nodes), 7)
+
+
+if __name__ == "__main__":
+    _ = unittest.main()

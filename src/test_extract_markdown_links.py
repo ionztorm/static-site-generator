@@ -28,3 +28,7 @@ class TestExtractMarkdownLink(unittest.TestCase):
         )
         matches = extract_markdown_links(markdown)
         self.assertEqual(matches, [])
+
+
+if __name__ == "__main__":
+    _ = unittest.main()

@@ -30,3 +30,7 @@ class TestLeafNode(unittest.TestCase):
             _ = node.to_html()
 
         self.assertEqual(str(context.exception), "LeafNode must have a value")
+
+
+if __name__ == "__main__":
+    _ = unittest.main()

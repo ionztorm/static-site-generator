@@ -26,3 +26,7 @@ class TestExtractMarkdownImage(unittest.TestCase):
         markdown = "This text has no images but has a link [link text](https://www.example.com)"
         matches = extract_markdown_images(markdown)
         self.assertEqual(matches, [])
+
+
+if __name__ == "__main__":
+    _ = unittest.main()

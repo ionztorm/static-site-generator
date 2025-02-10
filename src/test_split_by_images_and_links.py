@@ -125,3 +125,7 @@ class TestSplitImageLink(unittest.TestCase):
         ]
 
         self.assertEqual(split_nodes_link_and_image([node]), expected)
+
+
+if __name__ == "__main__":
+    _ = unittest.main()

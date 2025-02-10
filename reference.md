@@ -144,7 +144,24 @@ This is a link to [example.com](https://www.example.com).
 ## Markdown Code
 
 ```markdown
-````
-Texthis is a code block.
-````
 ```
+Texthis is a code block.
+```
+```
+
+## Regex
+
+`(?<!!)` - does not start with !
+`\[...\]` - inside [...]
+`\(...\)` - inside (...)
+`([^\(\)*])` -  
+`([^\[\]*])` - 
+
+**Markdown link**
+
+`(?<!!)\[([^\[\]]*)\]\(([^\(\)]*])\)`
+
+**Markdown image**
+
+`(!\[([^\[\]]*)\]\(([^\(\)]*])\)`
+

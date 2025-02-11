@@ -43,8 +43,6 @@ class ParentNode(HTMLNode):
         if not self.children:
             raise ValueError("ParentNode must have children")
 
-        # # NOTE: This is a recursive call to to_html. If child is a ParentNode,
-        # # it will it's own to_html mothod until it reaches a LeafNode.
         children_html = "".join(child.to_html() for child in self.children)
 
         return f"<{self.tag}{self.props_to_html()}>{children_html}</{self.tag}>"
@@ -52,20 +50,6 @@ class ParentNode(HTMLNode):
     @override
     def __repr__(self) -> str:
         return f"ParentNode({self.tag}, children: {self.children}, {self.props})"
-
-
-"""LeafNode, child of HTMLNode, represents a leaf node in the HTML tree.
-
-A leaf node is a node that has a value and no children. It is the lowest level of the HTML tree.
-
-For example:
-    <p>This is a leaf node</p>
-    <p>Thes paragraph is not a leaf node, <b>but this bold text is.</b</p>
-
-A leaf node could also be raw text, like:
-    This is a leaf node
-
-"""
 
 
 class LeafNode(HTMLNode):

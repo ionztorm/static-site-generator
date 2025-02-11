@@ -1,7 +1,7 @@
 from enum import Enum
 from typing import final, override
 
-from leafnode import LeafNode
+from htmlnode import LeafNode
 
 
 class TextType(Enum):
@@ -33,22 +33,6 @@ class TextNode:
         return f"TextNode({self.text}, {self.text_type.value}, {self.url})"
 
 
-"""
-def text_node_to_html_node(text_node):
-Copy icon
-It should handle each type of the TextType enum. If it gets a TextNode that is none of those types,
-it should raise an exception.
-
-TextType.TEXT: This should become a LeafNode with no tag, just a raw text value.
-TextType.BOLD: This should become a LeafNode with a “b” tag and the text
-TextType.ITALIC: “i” tag, text
-TextType.CODE: “code” tag, text
-TextType.LINK: “a” tag, anchor text, and “href” prop
-TextType.IMAGE: “img” tag, empty string value, “src” and “alt” props (“src” is the image URL, “alt”
-is the alt text)
-"""
-
-
 def text_node_to_html_node(text_node: TextNode) -> LeafNode:
     match text_node.text_type:
         case TextType.TEXT:
@@ -64,4 +48,7 @@ def text_node_to_html_node(text_node: TextNode) -> LeafNode:
         case TextType.IMAGE:
             return LeafNode("img", "", {"src": text_node.url, "alt": text_node.text})
         case _:
-            raise ValueError("Invalid TextType")
+            raise ValueError(
+                f"Invalid TextType: {text_node.text_type}. Expected one of "
+                + f"{', '.join(t.value for t in TextType)}"
+            )

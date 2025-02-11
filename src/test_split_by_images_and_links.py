@@ -1,7 +1,7 @@
 import unittest
 
 from textnode import TextNode, TextType
-from markdown_parser import (
+from inline_markdown import (
     split_nodes_link,
     split_nodes_image,
     split_nodes_by_type,

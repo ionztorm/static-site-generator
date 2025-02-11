@@ -1,7 +1,7 @@
 import unittest
 
 from textnode import TextNode, TextType
-from markdown_parser import text_to_textnode
+from inline_markdown import text_to_textnode
 
 
 class TestTextToTextnode(unittest.TestCase):

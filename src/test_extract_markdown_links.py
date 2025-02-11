@@ -1,6 +1,6 @@
 import unittest
 
-from markdown_parser import extract_markdown_links
+from inline_markdown import extract_markdown_links
 
 
 class TestExtractMarkdownLink(unittest.TestCase):

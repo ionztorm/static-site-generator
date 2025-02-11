@@ -32,3 +32,15 @@ def generate_page(source: Path, template: Path, dest: Path) -> None:
 
     with dest.open("w") as file:
         _ = file.write(template_html)
+
+
+def generate_pages_recursively(source: Path, template: Path, dest: Path) -> None:
+    for item in source.iterdir():
+        if item.is_file() and item.suffix in {".md", ".markdown"}:
+            print(f"Converting {item}")
+            generate_page(item, template, dest / item.with_suffix(".html").name)
+        else:
+            print(f"Checking directory {item}")
+            new_dest = dest / item.name
+            new_dest.mkdir()
+            generate_pages_recursively(item, template, new_dest)

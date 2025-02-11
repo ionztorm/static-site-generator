@@ -1,2 +1,2 @@
 # static-site-generator
-SSG for Bootdev
+SSG for [Bootdev](https://www.boot.dev)
